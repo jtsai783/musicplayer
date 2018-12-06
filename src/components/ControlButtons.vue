@@ -1,11 +1,31 @@
 <template>
-	<div class="control-buttons"></div>
+	<div class="control-buttons">
+		<div @click="prevTrack">prev</div>
+		<div @click="nextTrack">next</div>
+	</div>
 </template>
 
 <script>
-	export default{
-		name: "ControlButtons"
+export default{
+	name: "ControlButtons",
+	computed:{
+		currentTrack(){
+			return this.$store.state.currentTrack;
+		}
+	},
+	methods:{
+		prevTrack(){
+			if(this.currentTrack !== 0){
+				this.$store.commit('setCurrentTrack', this.currentTrack - 1);	
+			}
+		},
+		nextTrack(){
+			if(this.currentTrack !== this.$store.state.tracks.length - 1){
+				this.$store.commit('setCurrentTrack', this.currentTrack + 1);	
+			}
+		}
 	}
+}
 </script>
 
 <style scoped>
