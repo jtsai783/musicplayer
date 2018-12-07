@@ -39,6 +39,7 @@ export default{
     border-color: white;
     border-left: 0px;
     border-right: 0px;
+    cursor: pointer;
 }
 
 .total-duration{
