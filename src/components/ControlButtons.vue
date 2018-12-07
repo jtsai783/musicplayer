@@ -41,5 +41,6 @@ export default{
 		height: 100px;
 		background-color: purple;
 		display: inline-block;
+		float: left
 	}
 </style>

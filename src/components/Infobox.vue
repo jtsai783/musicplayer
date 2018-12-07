@@ -33,6 +33,6 @@ export default{
 		width: 350px;
 		height: 100px;
 		background-color: pink;
-		display: inline-block;
+		float: right;
 	}
 </style>

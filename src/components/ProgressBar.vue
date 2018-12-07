@@ -1,5 +1,5 @@
 <template>
-	<div class="progress-bar">
+	<div class="progress-bar" @click="handleProgressBarClick">
 		<div class="current-progress" ref="currentProgress"></div>
 		<div class="total-duration"></div>
 	</div>
@@ -16,6 +16,12 @@ export default{
 	watch: {
 		progress(val){
 			this.$refs.currentProgress.style.width = val + "%";
+		}
+	},
+	methods: {
+		handleProgressBarClick(e){
+			var progress = Math.floor((e.offsetX / 300) * 100);
+			this.$store.commit('setProgress', progress);
 		}
 	}
 }
@@ -38,6 +44,6 @@ export default{
 	height: 100%;
 	background-color: green;
 	position: absolute;
-	transition: width 1s;
+	transition: width 0.25s;
 }
 </style>

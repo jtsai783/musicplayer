@@ -32,6 +32,9 @@ export default {
     playing(){
       return this.$store.state.playing;
     }
+    , progressBus(){
+      return this.$store.state.progressBus;
+    }
   },
   watch:{
     playing(val){
@@ -40,6 +43,12 @@ export default {
       } else {
         this.$refs["audio-tag"].pause();
       }
+    },
+    progressBus(val){
+      if(val !== null){
+        this.$refs["audio-tag"].currentTime = val / 100 * this.$refs["audio-tag"].duration;
+      }
+      this.$store.commit('setProgress', null);
     }
   }
   , mounted: async function(){
