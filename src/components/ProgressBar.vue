@@ -29,6 +29,7 @@ export default{
 
 <style scoped>
 .progress-bar{
+	/*done*/
 	width: 300px;
 	height: 2px;
 	position: relative;
