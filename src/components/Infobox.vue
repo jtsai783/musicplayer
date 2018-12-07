@@ -1,11 +1,25 @@
 <template>
-	<div class="infobox"></div>
+	<div class="infobox">
+		<div>{{artistName}}</div>
+		<div>{{trackName}}</div>
+	</div>
 </template>
 
 <script>
-	export default{
-		name: "infobox"
+export default{
+	name: "infobox",
+	computed: {
+		artistName(){
+			return this.$store.state.artist;
+		},
+		trackName(){
+			if(this.$store.state.tracks){
+				return this.$store.state.tracks[this.$store.state.currentTrack].name;	
+			}
+			return null;
+		}
 	}
+}
 </script>
 
 <style scoped>

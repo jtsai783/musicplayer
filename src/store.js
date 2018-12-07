@@ -8,7 +8,8 @@ export default new Vuex.Store({
     albumName: null,
     artist : null,
     tracks: null,
-    currentTrack: null
+    currentTrack: null,
+    playing: false
   },
   mutations: {
 		setAlbumName(state, payload){
@@ -22,6 +23,10 @@ export default new Vuex.Store({
 		}
 		, setCurrentTrack(state, payload){
 			state.currentTrack = payload;
+			state.playing = false;
+		}
+		, togglePlay(state){
+			state.playing = !state.playing;
 		}
   },
   actions: {

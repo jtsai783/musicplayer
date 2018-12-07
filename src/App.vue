@@ -2,7 +2,7 @@
   <div id="app">
     <AlbumImage/>
     <MusicControl/>
-    <audio ref="audio-tag"></audio>
+    <audio ref="audio-tag" :src="playTrack"></audio>
   </div>
 </template>
 
@@ -15,6 +15,26 @@ export default {
   components: {
     AlbumImage,
     MusicControl
+  },
+  computed: {
+    playTrack(){
+      if(this.$store.state.tracks){
+        return this.$store.state.tracks[this.$store.state.currentTrack].url  
+      }
+      return null;
+    },
+    playing(){
+      return this.$store.state.playing;
+    }
+  },
+  watch:{
+    playing(val){
+      if(val){
+        this.$refs["audio-tag"].play();
+      } else {
+        this.$refs["audio-tag"].pause();
+      }
+    }
   }
   , mounted: async function(){
 

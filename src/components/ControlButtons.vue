@@ -2,6 +2,7 @@
 	<div class="control-buttons">
 		<div @click="prevTrack">prev</div>
 		<div @click="nextTrack">next</div>
+		<div @click="togglePlay">{{playing ? "pause" : "play"}}</div>
 	</div>
 </template>
 
@@ -11,6 +12,9 @@ export default{
 	computed:{
 		currentTrack(){
 			return this.$store.state.currentTrack;
+		},
+		playing(){
+			return this.$store.state.playing;
 		}
 	},
 	methods:{
@@ -23,6 +27,9 @@ export default{
 			if(this.currentTrack !== this.$store.state.tracks.length - 1){
 				this.$store.commit('setCurrentTrack', this.currentTrack + 1);	
 			}
+		},
+		togglePlay(){
+			this.$store.commit('togglePlay');
 		}
 	}
 }
