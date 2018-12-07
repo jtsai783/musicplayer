@@ -1,8 +1,10 @@
 <template>
 	<div class="infobox">
-		<div>{{artistName}}</div>
-		<div>{{trackName}}</div>
-		<ProgressBar />
+		<div class="center-box">
+			<div class="artist-name">{{artistName}}</div>
+			<ProgressBar />
+			<div class="track-name">{{trackName}}</div>
+		</div>
 	</div>
 </template>
 
@@ -30,9 +32,21 @@ export default{
 
 <style scoped>
 	.infobox{
-		width: 350px;
+		width: 320px;
 		height: 100px;
-		background-color: pink;
-		float: right;
+		position: absolute;
+		color: #2C3E50;
+		font-size: 13px;
+		display: inline-block;
+	}
+
+	.artist-name{
+		font-weight: 100;
+	}
+
+	.center-box{
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 </style>

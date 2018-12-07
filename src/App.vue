@@ -46,7 +46,10 @@ export default {
     },
     progressBus(val){
       if(val !== null){
-        this.$refs["audio-tag"].currentTime = val / 100 * this.$refs["audio-tag"].duration;
+        try{
+          this.$refs["audio-tag"].currentTime = val / 100 * this.$refs["audio-tag"].duration;  
+        }catch(e){}
+        
       }
       this.$store.commit('setProgress', null);
     }
@@ -68,5 +71,6 @@ export default {
 <style>
  body{
   margin: 0px;
+  font-family: "Helvetica"
  }
 </style>

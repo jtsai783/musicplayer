@@ -22,7 +22,7 @@ export default{
 .music-control{
 	width: 500px;
 	height: 100px;
-	background-color: blue;
+	display: inline-block;
 }
 
 </style>
