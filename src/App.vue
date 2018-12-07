@@ -2,7 +2,7 @@
   <div id="app">
     <AlbumImage/>
     <MusicControl/>
-    <audio ref="audio-tag" :src="playTrack"></audio>
+    <audio ref="audio-tag" :src="playTrack" @timeupdate="timeUpdate"></audio>
   </div>
 </template>
 
@@ -15,6 +15,12 @@ export default {
   components: {
     AlbumImage,
     MusicControl
+  },
+  methods: {
+    timeUpdate(){
+      var progress = Math.ceil((this.$refs["audio-tag"].currentTime /  this.$refs["audio-tag"].duration) * 100);
+      this.$store.commit('updateProgress', progress);
+    }
   },
   computed: {
     playTrack(){

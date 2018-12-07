@@ -2,12 +2,18 @@
 	<div class="infobox">
 		<div>{{artistName}}</div>
 		<div>{{trackName}}</div>
+		<ProgressBar />
 	</div>
 </template>
 
 <script>
+import ProgressBar from './ProgressBar.vue'
+
 export default{
 	name: "infobox",
+	components: {
+		ProgressBar
+	},
 	computed: {
 		artistName(){
 			return this.$store.state.artist;
